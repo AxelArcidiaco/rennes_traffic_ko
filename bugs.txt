@@ -1,0 +1,32 @@
+Ce fichier répertorie les bugs que j'ai identifié.
+
+
+=========================== Fichier get_data.py ===========================
+
+Bugs et erreurs :
+1) Indentation incorrecte dans la méthode __call__: La ligne temp_df = self.processing_one_point(data_dict) doit être indentée correctement à l'intérieur de la boucle for.
+2) Erreur de syntaxe dans la méthode __call__: Il manque une parenthèse fermante à la ligne res_df = res_df[res_df.traffic != 'unknown'.
+3) Erreur de syntaxe dans la méthode processing_one_point: La ligne temp['lat'] = temp.geo_point_2d.map(lambda x : x['lattitude']) devrait être temp['lat'] = temp.geo_point_2d.map(lambda x : x['latitude']). Il y a une faute de frappe dans le nom de la clé 'latitude'.
+4) Vérification d'une clé dans data_dict avant utilisation: Avant d'accéder à 'geo_point_2d' dans processing_one_point, il serait sage de vérifier si cette clé existe dans data_dict. Sinon, cela pourrait causer une erreur.
+5) Gestion des erreurs de la requête HTTP: Le code actuel suppose que la requête HTTP réussit. Il serait bon d'ajouter une gestion des erreurs pour les cas où la requête échoue.
+
+Résolution de ses bugs et erreurs :
+1) ajout d'une tabulation au ligne 27, 28, et 30
+2) ajout d'une ] à la ligne res_df = res_df[res_df.traffic != 'unknown'
+3) correction de lattitude par latitude sur la ligne temp['lat'] = temp.geo_point_2d.map(lambda x : x['lattitude']) devrait être temp['lat'] = temp.geo_point_2d.map(lambda x : x['latitude'])
+4) ajout de la vérification que la clé 'geo_point_2d' existe dans le dictionnaire data_dict
+5) ajout de la gestion des erreurs
+
+
+=========================== Fichier utils.py ===========================
+
+Bugs et erreurs :
+1) SyntaxError dans la fonction create_figure: Il manque une virgule après zoom=10 dans l'appel à px.scatter_mapbox.
+2) Indentation incorrecte dans la fonction create_figure: La ligne height=500 devrait être indentée à la même niveau que les autres arguments de la fonction px.scatter_mapbox.
+3) Indentation incorrecte dans la fonction prediction_from_model: La fonction np.argmax devrait être indentée correctement pour être à l'intérieur de la fonction.
+4) Utilisation de np.array incorrecte dans prediction_from_model: Vous avez utilisé np.array deux fois pour input_pred, ce qui n'est pas nécessaire.
+
+Résolution de ses bugs et erreurs :
+1) ajout d'une virgule dans la fonction create_figure après zoom=10 dans l'appel à px.scatter_mapbox.
+2) correction de l'indentation
+3) correction de l'indentation
