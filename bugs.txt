@@ -30,3 +30,15 @@ Résolution de ses bugs et erreurs :
 1) ajout d'une virgule dans la fonction create_figure après zoom=10 dans l'appel à px.scatter_mapbox.
 2) correction de l'indentation
 3) correction de l'indentation
+4)
+
+
+=========================== Fichier utils.py ===========================
+
+Bugs et erreurs :
+1) Erreur de syntaxe dans la balise <h4>: La balise de fermeture devrait être </h4> au lieu de </h1>.
+2) Référence à une variable inexistante dans la balise <span>: Vous référencez color_pred et text_pred dans la balise <span>, mais ces variables ne sont pas définies dans le code HTML.
+3) Balise <option> incorrectement fermée: La balise <option> doit être fermée par </option> au lieu de </option>.
+4) Syntaxe incorrecte pour l'ajout du graphique Plotly: Vous utilisez des balises {{ graph_json | safe }} pour insérer du contenu dynamique dans le script JavaScript, mais cela suppose que vous utilisez un moteur de modèle comme Jinja2, ce qui n'est pas évident dans ce code HTML seul.
+
+Corrections apportées :
