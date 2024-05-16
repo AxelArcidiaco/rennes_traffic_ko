@@ -1,44 +1,32 @@
 Ce fichier répertorie les bugs que j'ai identifié.
 
 
-=========================== Fichier get_data.py ===========================
+=========================== Fichier app.py ===========================
 
 Bugs et erreurs :
-1) Indentation incorrecte dans la méthode __call__: La ligne temp_df = self.processing_one_point(data_dict) doit être indentée correctement à l'intérieur de la boucle for.
-2) Erreur de syntaxe dans la méthode __call__: Il manque une parenthèse fermante à la ligne res_df = res_df[res_df.traffic != 'unknown'.
-3) Erreur de syntaxe dans la méthode processing_one_point: La ligne temp['lat'] = temp.geo_point_2d.map(lambda x : x['lattitude']) devrait être temp['lat'] = temp.geo_point_2d.map(lambda x : x['latitude']). Il y a une faute de frappe dans le nom de la clé 'latitude'.
-4) Vérification d'une clé dans data_dict avant utilisation: Avant d'accéder à 'geo_point_2d' dans processing_one_point, il serait sage de vérifier si cette clé existe dans data_dict. Sinon, cela pourrait causer une erreur.
-5) Gestion des erreurs de la requête HTTP: Le code actuel suppose que la requête HTTP réussit. Il serait bon d'ajouter une gestion des erreurs pour les cas où la requête échoue.
+1) ligne "cat_predict = prediction_from_model(model)" la fonction prediction_from_model requiert 2 arguments alors que 1 seul est passé par le code
+2) absence de () à la ligne : "graph_json = fig_map.to_json" ce qui provoque une erreur lors de l'appel de la fonction create_figure
+3) ligne return render_template("home.html", graph_json=graph_json) -> mauvais nom de fichier html
 
-Résolution de ses bugs et erreurs :
-1) ajout d'une tabulation au ligne 27, 28, et 30
-2) ajout d'une ] à la ligne res_df = res_df[res_df.traffic != 'unknown'
-3) correction de lattitude par latitude sur la ligne temp['lat'] = temp.geo_point_2d.map(lambda x : x['lattitude']) devrait être temp['lat'] = temp.geo_point_2d.map(lambda x : x['latitude'])
-4) ajout de la vérification que la clé 'geo_point_2d' existe dans le dictionnaire data_dict
-5) ajout de la gestion des erreurs
+Corrections apportées :
+1) ajout de la variable "selected_hour" après model dans la ligne "cat_predict = prediction_from_model(model)"
+2) ajout des parenthèse à la ligne "graph_json = fig_map.to_json"
+3) ligne return render_template("home.html", graph_json=graph_json) -> changement de home.html à index.html
 
 
-=========================== Fichier utils.py ===========================
-
-Bugs et erreurs :
-1) SyntaxError dans la fonction create_figure: Il manque une virgule après zoom=10 dans l'appel à px.scatter_mapbox.
-2) Indentation incorrecte dans la fonction create_figure: La ligne height=500 devrait être indentée à la même niveau que les autres arguments de la fonction px.scatter_mapbox.
-3) Indentation incorrecte dans la fonction prediction_from_model: La fonction np.argmax devrait être indentée correctement pour être à l'intérieur de la fonction.
-4) Utilisation de np.array incorrecte dans prediction_from_model: Vous avez utilisé np.array deux fois pour input_pred, ce qui n'est pas nécessaire.
-
-Résolution de ses bugs et erreurs :
-1) ajout d'une virgule dans la fonction create_figure après zoom=10 dans l'appel à px.scatter_mapbox.
-2) correction de l'indentation
-3) correction de l'indentation
-4)
-
-
-=========================== Fichier utils.py ===========================
+=========================== Fichier index.html ===========================
 
 Bugs et erreurs :
 1) Erreur de syntaxe dans la balise <h4>: La balise de fermeture devrait être </h4> au lieu de </h1>.
-2) Référence à une variable inexistante dans la balise <span>: Vous référencez color_pred et text_pred dans la balise <span>, mais ces variables ne sont pas définies dans le code HTML.
-3) Balise <option> incorrectement fermée: La balise <option> doit être fermée par </option> au lieu de </option>.
-4) Syntaxe incorrecte pour l'ajout du graphique Plotly: Vous utilisez des balises {{ graph_json | safe }} pour insérer du contenu dynamique dans le script JavaScript, mais cela suppose que vous utilisez un moteur de modèle comme Jinja2, ce qui n'est pas évident dans ce code HTML seul.
 
 Corrections apportées :
+1) remplacement de la balise fermante </h1> incorrecte par la balise fermante </h4>
+
+
+=========================== Fichier get_data.py ===========================
+
+Bugs et erreurs : 
+1) ligne res_df = res_df[res_df.traffic != 'unknown' --> parenthèse "]" fermente absente
+
+Corrections apportées :
+1) ajout d'une parenthèse fermente à la ligne res_df = res_df[res_df.traffic != 'unknown'

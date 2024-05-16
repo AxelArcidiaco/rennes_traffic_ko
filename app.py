@@ -27,7 +27,9 @@ def index():
 
         selected_hour = request.form["hour"]
 
-        cat_predict = prediction_from_model(model)
+        cat_predict = prediction_from_model(
+            model, selected_hour
+        )  # Ajouter selected_hour comme argument
 
         color_pred_map = {
             0: ["Prédiction : Libre", "green"],
@@ -41,13 +43,11 @@ def index():
             text_pred=color_pred_map[cat_predict][0],
             color_pred=color_pred_map[cat_predict][1],
         )
-
     else:
-
         fig_map = create_figure(data)
-        graph_json = fig_map.to_json
+        graph_json = fig_map.to_json()  # Ajouter '()' pour appeler la méthode to_json
 
-        return render_template("home.html", graph_json=graph_json)
+        return render_template("index.html", graph_json=graph_json) # Le fichier html n'est pas home.html
 
 
 if __name__ == "__main__":
