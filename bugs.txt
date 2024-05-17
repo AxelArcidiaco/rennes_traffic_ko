@@ -27,6 +27,21 @@ Corrections apportées :
 
 Bugs et erreurs : 
 1) ligne res_df = res_df[res_df.traffic != 'unknown' --> parenthèse "]" fermente absente
+2) clé 'traffic_status' dans la fonction processing_one_point() --> n'existe pas dans le fichier json
+3) clé 'lattitude' à la ligne temp['lat'] = temp.geo_point_2d.map(lambda x : x['lattitude']) érroné
+4) clé 'longitude' à la ligne temp['lon'] = temp.geo_point_2d.map(lambda x : x['longitude']) érroné
 
 Corrections apportées :
 1) ajout d'une parenthèse fermente à la ligne res_df = res_df[res_df.traffic != 'unknown'
+2) suppression de la clé 'traffic_status'
+3) remplacement de la clé lattitude par la clé correcte lat
+3) remplacement de la clé longitude par la clé correcte lon
+
+
+=========================== Fichier utils.py ===========================
+
+Bugs et erreurs :
+1) ligne zoom=10 dans la fonction create_figure() --> virgule manquante
+
+Corrections apportées :
+1) ajout de la virgule manquante

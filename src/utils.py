@@ -12,7 +12,7 @@ def create_figure(data):
             lat="lat",
             lon="lon",
             color_discrete_map={'freeFlow':'green', 'heavy':'orange', 'congested':'red'},
-            zoom=10
+            zoom=10,
             height=500,
             mapbox_style="carto-positron"
     )
