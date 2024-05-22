@@ -7,8 +7,10 @@ from keras.models import load_model
 
 from src.get_data import GetData
 from src.utils import create_figure, prediction_from_model
+import flask_monitoringdashboard as dashboard # Importation de flask_monitoringdashboard pour monitorer l'utilisation de l'app web
 
 app = Flask(__name__)
+dashboard.bind(app) # Mise en place du monitoring
 
 data_retriever = GetData(
     url="https://data.rennesmetropole.fr/api/explore/v2.1/catalog/datasets/etat-du-trafic-en-temps-reel/exports/json?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B"
