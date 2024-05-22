@@ -38,7 +38,7 @@ def index():
         }
 
         return render_template(
-            "home.html",
+            "index.html", # Correction de home.html à index.html
             graph_json=graph_json,
             text_pred=color_pred_map[cat_predict][0],
             color_pred=color_pred_map[cat_predict][1],

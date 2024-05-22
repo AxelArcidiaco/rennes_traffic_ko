@@ -6,12 +6,14 @@ Ce fichier répertorie les bugs que j'ai identifié.
 Bugs et erreurs :
 1) ligne "cat_predict = prediction_from_model(model)" la fonction prediction_from_model requiert 2 arguments alors que 1 seul est passé par le code
 2) absence de () à la ligne : "graph_json = fig_map.to_json" ce qui provoque une erreur lors de l'appel de la fonction create_figure
-3) ligne return render_template("home.html", graph_json=graph_json) -> mauvais nom de fichier html
+3) dans la ligne return render_template("home.html", graph_json=graph_json, text_pred=color_pred_map[cat_predict][0], color_pred=color_pred_map[cat_predict][1]) -> mauvais nom de fichier html
+4) ligne return render_template("home.html", graph_json=graph_json) -> mauvais nom de fichier html
 
 Corrections apportées :
 1) ajout de la variable "selected_hour" après model dans la ligne "cat_predict = prediction_from_model(model)"
 2) ajout des parenthèse à la ligne "graph_json = fig_map.to_json"
-3) ligne return render_template("home.html", graph_json=graph_json) -> changement de home.html à index.html
+3) dans la ligne return render_template("home.html", graph_json=graph_json, text_pred=color_pred_map[cat_predict][0], color_pred=color_pred_map[cat_predict][1]) -> changement de home.html à index.html
+4) ligne return render_template("home.html", graph_json=graph_json) -> changement de home.html à index.html
 
 
 =========================== Fichier index.html ===========================
@@ -27,13 +29,13 @@ Corrections apportées :
 
 Bugs et erreurs : 
 1) ligne res_df = res_df[res_df.traffic != 'unknown' --> parenthèse "]" fermente absente
-2) clé 'traffic_status' dans la fonction processing_one_point() --> n'existe pas dans le fichier json
+2) clé 'traffic_status' dans la fonction processing_one_point() --> n'existe pas dans le fichier json. L'analyse des champs du JSON montrent que trafficstatus est la clé correcte et non traffic_status. Cela doit être corrigé dans la méthode processing_one_point.
 3) clé 'lattitude' à la ligne temp['lat'] = temp.geo_point_2d.map(lambda x : x['lattitude']) érroné
 4) clé 'longitude' à la ligne temp['lon'] = temp.geo_point_2d.map(lambda x : x['longitude']) érroné
 
 Corrections apportées :
 1) ajout d'une parenthèse fermente à la ligne res_df = res_df[res_df.traffic != 'unknown'
-2) suppression de la clé 'traffic_status'
+2) remplacement de la clé 'traffic_status' par la clé 'trafficstatus'
 3) remplacement de la clé lattitude par la clé correcte lat
 3) remplacement de la clé longitude par la clé correcte lon
 
@@ -42,6 +44,8 @@ Corrections apportées :
 
 Bugs et erreurs :
 1) ligne zoom=10 dans la fonction create_figure() --> virgule manquante
+2) tableau des heures dans prediction_from_model() va jusqu'à 25 : input_pred = np.array([0]*25)
 
 Corrections apportées :
 1) ajout de la virgule manquante
+2) remplacement de 25 par 24 dans prediction_from_model() : input_pred = np.array([0]*24)
