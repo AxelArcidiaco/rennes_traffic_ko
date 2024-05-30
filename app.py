@@ -21,7 +21,7 @@ logging.basicConfig(
 
 app = Flask(__name__)
 dashboard.config.init_from(file="config.cfg")
-dashboard.bind(app)  # Mise en place du monitoring
+# dashboard.bind(app)  # Mise en place du monitoring
 
 
 # Middleware pour mesurer le temps de réponse
@@ -89,6 +89,8 @@ def index():
         logging.error("An error occurred", exc_info=True)
         return "An internal error occurred", 500
 
+
+dashboard.bind(app)  # Mise en place du monitoring après la définition des routes et avant le lancement de l'app
 
 if __name__ == "__main__":
     app.run(debug=True)
