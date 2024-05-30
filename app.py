@@ -1,6 +1,7 @@
 # Importation des bibliothèques requises
 import logging
-from flask import Flask, render_template, request
+import time
+from flask import Flask, render_template, request, g
 import plotly.graph_objs as go
 import plotly.express as px
 import numpy as np
@@ -21,6 +22,21 @@ logging.basicConfig(
 app = Flask(__name__)
 dashboard.config.init_from(file="config.cfg")
 dashboard.bind(app)  # Mise en place du monitoring
+
+
+# Middleware pour mesurer le temps de réponse
+@app.before_request
+def start_timer():
+    g.start = time.time()
+
+
+@app.after_request
+def log_request(response):
+    if hasattr(g, "start"):
+        elapsed_time = time.time() - g.start
+        logging.info(f"Request to {request.path} took {elapsed_time:.4f} seconds")
+    return response
+
 
 # Initialisation de l'objet GetData avec l'URL des données
 data_retriever = GetData(
