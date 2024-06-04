@@ -403,3 +403,46 @@ OSError: [Errno 22] Invalid argument
 2024-05-30 14:07:51,524:INFO:127.0.0.1 - - [30/May/2024 14:07:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 2024-05-30 14:07:56,921:INFO:127.0.0.1 - - [30/May/2024 14:07:56] "GET /dashboard/api/hourly_load/2024-05-16/2024-05-30/1 HTTP/1.1" 200 -
 2024-05-30 14:07:56,923:INFO:127.0.0.1 - - [30/May/2024 14:07:56] "GET /dashboard/api/endpoint_info/1 HTTP/1.1" 200 -
+2024-05-31 09:25:18,880:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-31 09:25:18,881:INFO:[33mPress CTRL+C to quit[0m
+2024-05-31 09:26:16,712:INFO:127.0.0.1 - - [31/May/2024 09:26:16] "GET / HTTP/1.1" 200 -
+2024-05-31 09:26:17,258:INFO:127.0.0.1 - - [31/May/2024 09:26:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-05-31 09:26:23,689:INFO:127.0.0.1 - - [31/May/2024 09:26:23] "[32mGET /dashboard/ HTTP/1.1[0m" 302 -
+2024-05-31 09:26:24,113:INFO:127.0.0.1 - - [31/May/2024 09:26:24] "GET /dashboard/login HTTP/1.1" 200 -
+2024-05-31 09:26:24,513:INFO:127.0.0.1 - - [31/May/2024 09:26:24] "[36mGET /dashboard/static/img/header.png HTTP/1.1[0m" 304 -
+2024-05-31 09:26:24,513:INFO:127.0.0.1 - - [31/May/2024 09:26:24] "[36mGET /dashboard/static/css/main.css HTTP/1.1[0m" 304 -
+2024-05-31 09:26:24,667:INFO:127.0.0.1 - - [31/May/2024 09:26:24] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2024-05-31 09:26:24,718:INFO:127.0.0.1 - - [31/May/2024 09:26:24] "[36mGET /dashboard/static/fonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+2024-05-31 09:26:25,070:INFO:127.0.0.1 - - [31/May/2024 09:26:25] "[36mGET /dashboard/static/pages/overview.html HTTP/1.1[0m" 304 -
+2024-05-31 09:26:30,217:INFO:127.0.0.1 - - [31/May/2024 09:26:30] "[32mPOST /dashboard/login HTTP/1.1[0m" 302 -
+2024-05-31 09:26:30,312:INFO:127.0.0.1 - - [31/May/2024 09:26:30] "GET /dashboard/ HTTP/1.1" 200 -
+2024-05-31 09:26:30,466:INFO:127.0.0.1 - - [31/May/2024 09:26:30] "[36mGET /dashboard/static/css/main.css HTTP/1.1[0m" 304 -
+2024-05-31 09:26:30,625:INFO:127.0.0.1 - - [31/May/2024 09:26:30] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2024-05-31 09:26:30,877:INFO:127.0.0.1 - - [31/May/2024 09:26:30] "[36mGET /dashboard/static/pages/overview.html HTTP/1.1[0m" 304 -
+2024-05-31 09:26:30,972:INFO:127.0.0.1 - - [31/May/2024 09:26:30] "[36mGET /dashboard/static/elements/menu.html HTTP/1.1[0m" 304 -
+2024-05-31 09:26:31,015:INFO:127.0.0.1 - - [31/May/2024 09:26:31] "[36mGET /dashboard/static/elements/modal.html HTTP/1.1[0m" 304 -
+2024-05-31 09:26:31,077:INFO:127.0.0.1 - - [31/May/2024 09:26:31] "[36mGET /dashboard/static/pages/telemetry.html HTTP/1.1[0m" 304 -
+2024-05-31 09:26:31,106:INFO:127.0.0.1 - - [31/May/2024 09:26:31] "GET /dashboard/api/custom_graphs HTTP/1.1" 200 -
+2024-05-31 09:26:31,446:INFO:127.0.0.1 - - [31/May/2024 09:26:31] "GET /dashboard/telemetry/get_is_telemetry_answered HTTP/1.1" 200 -
+2024-05-31 09:26:31,647:INFO:127.0.0.1 - - [31/May/2024 09:26:31] "GET /dashboard/api/deploy_details HTTP/1.1" 200 -
+2024-05-31 09:26:35,282:INFO:127.0.0.1 - - [31/May/2024 09:26:35] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2024-05-31 09:26:35,484:INFO:127.0.0.1 - - [31/May/2024 09:26:35] "[36mGET /dashboard/static/elements/monitorLevel.html HTTP/1.1[0m" 304 -
+2024-05-31 09:26:38,403:INFO:127.0.0.1 - - [31/May/2024 09:26:38] "[36mGET /dashboard/static/pages/plotly_graph.html HTTP/1.1[0m" 304 -
+2024-05-31 09:26:38,432:INFO:127.0.0.1 - - [31/May/2024 09:26:38] "[36mGET /dashboard/static/elements/endpointDetails.html HTTP/1.1[0m" 304 -
+2024-05-31 09:26:39,446:INFO:127.0.0.1 - - [31/May/2024 09:26:39] "GET /dashboard/api/hourly_load/2024-05-17/2024-05-31/1 HTTP/1.1" 200 -
+2024-05-31 09:26:39,450:INFO:127.0.0.1 - - [31/May/2024 09:26:39] "GET /dashboard/api/endpoint_info/1 HTTP/1.1" 200 -
+2024-05-31 09:26:48,486:INFO:127.0.0.1 - - [31/May/2024 09:26:48] "POST / HTTP/1.1" 200 -
+2024-05-31 09:26:52,005:INFO:127.0.0.1 - - [31/May/2024 09:26:52] "POST / HTTP/1.1" 200 -
+2024-05-31 10:26:30,465:INFO:127.0.0.1 - - [31/May/2024 10:26:30] "GET /dashboard/endpoint/1/hourly_load HTTP/1.1" 200 -
+2024-05-31 10:26:30,532:INFO:127.0.0.1 - - [31/May/2024 10:26:30] "[36mGET /dashboard/static/css/main.css HTTP/1.1[0m" 304 -
+2024-05-31 10:26:30,596:INFO:127.0.0.1 - - [31/May/2024 10:26:30] "[36mGET /dashboard/static/fonts/fa-solid-900.woff2 HTTP/1.1[0m" 304 -
+2024-05-31 10:26:30,622:INFO:127.0.0.1 - - [31/May/2024 10:26:30] "[36mGET /dashboard/static/js/app.js HTTP/1.1[0m" 304 -
+2024-05-31 10:26:30,894:INFO:127.0.0.1 - - [31/May/2024 10:26:30] "[36mGET /dashboard/static/elements/modal.html HTTP/1.1[0m" 304 -
+2024-05-31 10:26:30,900:INFO:127.0.0.1 - - [31/May/2024 10:26:30] "[36mGET /dashboard/static/elements/menu.html HTTP/1.1[0m" 304 -
+2024-05-31 10:26:30,904:INFO:127.0.0.1 - - [31/May/2024 10:26:30] "[36mGET /dashboard/static/pages/plotly_graph.html HTTP/1.1[0m" 304 -
+2024-05-31 10:26:30,993:INFO:127.0.0.1 - - [31/May/2024 10:26:30] "[36mGET /dashboard/static/elements/endpointDetails.html HTTP/1.1[0m" 304 -
+2024-05-31 10:26:31,007:INFO:127.0.0.1 - - [31/May/2024 10:26:31] "[36mGET /dashboard/static/elements/monitorLevel.html HTTP/1.1[0m" 304 -
+2024-05-31 10:26:32,173:INFO:127.0.0.1 - - [31/May/2024 10:26:32] "GET /dashboard/api/custom_graphs HTTP/1.1" 200 -
+2024-05-31 10:26:32,186:INFO:127.0.0.1 - - [31/May/2024 10:26:32] "GET /dashboard/api/hourly_load/2024-05-17/2024-05-31/1 HTTP/1.1" 200 -
+2024-05-31 10:26:32,187:INFO:127.0.0.1 - - [31/May/2024 10:26:32] "GET /dashboard/api/endpoint_info/1 HTTP/1.1" 200 -
