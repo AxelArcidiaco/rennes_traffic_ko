@@ -446,3 +446,16 @@ OSError: [Errno 22] Invalid argument
 2024-05-31 10:26:32,173:INFO:127.0.0.1 - - [31/May/2024 10:26:32] "GET /dashboard/api/custom_graphs HTTP/1.1" 200 -
 2024-05-31 10:26:32,186:INFO:127.0.0.1 - - [31/May/2024 10:26:32] "GET /dashboard/api/hourly_load/2024-05-17/2024-05-31/1 HTTP/1.1" 200 -
 2024-05-31 10:26:32,187:INFO:127.0.0.1 - - [31/May/2024 10:26:32] "GET /dashboard/api/endpoint_info/1 HTTP/1.1" 200 -
+2024-06-10 11:34:12,885:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 11:34:12,885:INFO:[33mPress CTRL+C to quit[0m
+2024-06-10 11:34:12,886:INFO: * Restarting with stat
+2024-06-10 11:34:21,808:WARNING: * Debugger is active!
+2024-06-10 11:34:21,814:INFO: * Debugger PIN: 690-675-307
+2024-06-10 11:34:29,109:INFO:127.0.0.1 - - [10/Jun/2024 11:34:29] "GET / HTTP/1.1" 200 -
+2024-06-10 12:21:31,369:INFO: * Detected change in 'c:\\Users\\axela\\Desktop\\E5 - rennes_traffic_ko\\app.py', reloading
+2024-06-10 12:21:31,924:INFO: * Restarting with stat
+2024-06-10 12:22:16,297:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-10 12:22:16,297:INFO:[33mPress CTRL+C to quit[0m
+2024-06-10 12:22:49,224:INFO:127.0.0.1 - - [10/Jun/2024 12:22:49] "POST / HTTP/1.1" 200 -

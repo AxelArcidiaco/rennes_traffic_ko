@@ -5,6 +5,9 @@ from flask import Flask, render_template, request, g
 import plotly.graph_objs as go
 import plotly.express as px
 import numpy as np
+from flask_mail import Mail, Message
+from threading import Thread
+from datetime import datetime, timedelta
 
 from keras.models import load_model
 
@@ -20,23 +23,53 @@ logging.basicConfig(
 )
 
 app = Flask(__name__)
+app.config.update(
+    MAIL_SERVER='smtp.example.com',  # Remplacez par votre serveur SMTP
+    MAIL_PORT=587,
+    MAIL_USE_TLS=True,
+    MAIL_USERNAME='your_email@example.com',  # Remplacez par votre email
+    MAIL_PASSWORD='your_password',  # Remplacez par votre mot de passe
+    MAIL_DEFAULT_SENDER=('Traffic Monitoring', 'your_email@example.com')
+)
+mail = Mail(app)
 dashboard.config.init_from(file="config.cfg")
-# dashboard.bind(app)  # Mise en place du monitoring
 
+request_counts = []
 
 # Middleware pour mesurer le temps de réponse
 @app.before_request
 def start_timer():
     g.start = time.time()
 
-
 @app.after_request
 def log_request(response):
     if hasattr(g, "start"):
         elapsed_time = time.time() - g.start
         logging.info(f"Request to {request.path} took {elapsed_time:.4f} seconds")
+    
+    now = datetime.now()
+    request_counts.append(now)
+
+    # Remove requests older than 1 hour
+    one_hour_ago = now - timedelta(hours=1)
+    request_counts[:] = [req_time for req_time in request_counts if req_time > one_hour_ago]
+
+    if len(request_counts) > 100:
+        send_alert_email()
+
     return response
 
+def send_async_email(app, msg):
+    with app.app_context():
+        mail.send(msg)
+
+def send_alert_email():
+    msg = Message(
+        subject='Alert: High Traffic',
+        recipients=['admin@example.com'],  # Remplacez par l'email de l'admin
+        body='The application has received over 100 requests in the last hour.'
+    )
+    Thread(target=send_async_email, args=(app, msg)).start()
 
 # Initialisation de l'objet GetData avec l'URL des données
 data_retriever = GetData(
@@ -46,7 +79,6 @@ data = data_retriever()  # Récupération des données
 
 # Chargement du modèle Keras
 model = load_model("model.h5")
-
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -88,7 +120,6 @@ def index():
     except Exception as e:
         logging.error("An error occurred", exc_info=True)
         return "An internal error occurred", 500
-
 
 dashboard.bind(app)  # Mise en place du monitoring après la définition des routes et avant le lancement de l'app
 
