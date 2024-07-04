@@ -24,11 +24,11 @@ logging.basicConfig(
 
 app = Flask(__name__)
 app.config.update(
-    MAIL_SERVER='smtp.example.com',  # Remplacez par votre serveur SMTP
+    MAIL_SERVER='http://127.0.0.1:5000',  # Adresse serveur
     MAIL_PORT=587,
     MAIL_USE_TLS=True,
-    MAIL_USERNAME='your_email@example.com',  # Remplacez par votre email
-    MAIL_PASSWORD='your_password',  # Remplacez par votre mot de passe
+    MAIL_USERNAME='your_email@example.com',
+    MAIL_PASSWORD='your_password',
     MAIL_DEFAULT_SENDER=('Traffic Monitoring', 'your_email@example.com')
 )
 mail = Mail(app)
